@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Leaf Disease Detector</title>
+    <style>
+        body {
+            background: #111;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #00ff99;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #1c1c1c;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00ff9977;
+        }
+
+        input[type="file"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #00ff99;
+            background-color: #222;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #00ff99;
+            border: none;
+            color: #000;
+            padding: 10px 25px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00cc77;
+        }
+
+        img {
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00ff9966;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #00ffcc;
+        }
+
+        p {
+            font-size: 18px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🌿 Plant Leaf Disease Detector</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required><br><br>
+        <input type="submit" value="🧠 Predict">
+    </form>
+
+    {% if image %}
+        <h2>🖼️ Uploaded Image:</h2>
+        <img src="{{ image }}" width="300"><br><br>
+    {% endif %}
+
+    {% if prediction %}
+        <h2>{{ prediction }}</h2>
+    {% endif %}
+
+</body>
+</html>
